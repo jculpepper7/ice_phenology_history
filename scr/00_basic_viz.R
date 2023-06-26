@@ -6,6 +6,7 @@
 library(tidyverse)
 library(here)
 library(janitor)
+library(wesanderson)
 
 # 1. Read in data ---------------------------------------------------------
 
@@ -24,8 +25,16 @@ hist2 <- hist %>%
 
 # 3. Visualize ---------------------------------------------------------------
 
+#Bar plot colored by country
 fig1 <- ggplot(data = hist2)+
   geom_bar(aes(x = year, fill = country))+
   scale_fill_viridis_d()+
   theme_classic()
 fig1
+
+#Bar plot colored by continent
+fig2 <- ggplot(data = hist2)+
+  geom_bar(aes(x = year, fill = continent))+
+  scale_fill_viridis_d()+
+  theme_classic()
+fig2
